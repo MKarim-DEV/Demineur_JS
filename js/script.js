@@ -47,7 +47,6 @@ function generate_and_set_table(data) {
           for (let colOffset = -1; colOffset <= 1; colOffset++) {
             const newRow = row + rowOffset;
             const newCol = col + colOffset;
-
             if (
               newRow >= 0 && newRow < numRows &&
               newCol >= 0 && newCol < numCols &&
