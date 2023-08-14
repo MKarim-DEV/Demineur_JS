@@ -17,7 +17,7 @@
   <body>
     <div class="row" >
     <div id="nav" class="d-flex flex-column flex-shrink-0 p-3 bg-light col-4" style="width: 280px;">
-      <a href="/" class="d-flex align-items-center  mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <span class="fs-4 fw-bolder text-center text-success">Demineur.com</br>Javascript Project</span>
       </a>
@@ -43,6 +43,27 @@
         </li>
       </ul>
     </div>
-   
+    <div class="container col-8" id="cont">
+      <div class="bg-info pt-2 mt-2 mb-5 border rounded-4">
+        <p class="text-center fs-4 fw-bold text-light ">Veuillez configurer la grille de votre démineur!</p>
+        </div>
+      <form acion="" id="form0">
+          <label for="rows" class="fs-5 fw-semibold form-label">Nombre de lignes</label>
+          <input type="number" id="rows" class="form-control mb-4"
+           name="rows" value="">
+          <label for="cols" class="fs-5 fw-semibold form-label">Nombre de colonnes</label>
+          <input type="number" id="cols" class="form-control mb-4"
+           name="cols" value="">
+           <label for="mines" class="fs-5 fw-semibold form-label">Nombre de mines</label>
+           <input type="number" id="mines" class="form-control mb-5"
+            name="mines" value="">
+        <div class="d-flex justify-content-center">
+          <button type="submit" onclick="" id="settings_submit" class="btn fw-semibold text-light btn-info px-5 py-2 rounded">Valider</button>
+        </div>
+      </form>
+    </div>
+    <div class="container row mt-4 d-flex justify-content-center">
+      <div id="grid" class="col-lg-8"></div>
+    </div>
   </body>
 </html>
