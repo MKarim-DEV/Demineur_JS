@@ -20,6 +20,21 @@ settings_submit.addEventListener("click", async (event) => {
 
     if (data && Array.isArray(data)) {
       generate_and_set_table(data);
+      // Sélectionnez tous les éléments avec la classe "cell"
+const cellElements = document.querySelectorAll(".cell");
+
+// Parcourez chaque élément et ajoutez un événement de clic
+cellElements.forEach(cell => {
+  cell.addEventListener("click", () => {
+    const cellValue = cell.textContent;
+
+    if (cellValue === "B") {
+      console.log("Perdu");
+    } else {
+      console.log("Play again");
+    }
+  });
+});
     } else {
       console.error("Invalid grid data: Unexpected data format.");
     }
@@ -73,9 +88,6 @@ function generate_and_set_table(data) {
   tableHtml += '</table>';
   document.querySelector("#grid").innerHTML = tableHtml;
 }
-
-
-
 
 
 // settings_submit.addEventListener("click", (event) => {
