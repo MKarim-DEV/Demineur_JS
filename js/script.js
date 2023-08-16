@@ -20,7 +20,7 @@ settings_submit.addEventListener("click", async (event) => {
 
     if (data && Array.isArray(data)) {
       generate_and_set_table(data);
-      click_manager(data);
+      click_manager();
     } else {
       console.error("Invalid grid data: Unexpected data format.");
     }
@@ -89,6 +89,9 @@ function checkVictory() {
     prompt("Gagné");
     restart_game(); // Appeler la fonction pour relancer la partie
   }
+}
+function restart_game() {
+
 }
 
 function click_manager() {
