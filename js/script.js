@@ -20,21 +20,7 @@ settings_submit.addEventListener("click", async (event) => {
 
     if (data && Array.isArray(data)) {
       generate_and_set_table(data);
-      // Sélectionnez tous les éléments avec la classe "cell"
-const cellElements = document.querySelectorAll(".cell");
-
-// Parcourez chaque élément et ajoutez un événement de clic
-cellElements.forEach(cell => {
-  cell.addEventListener("click", () => {
-    const cellValue = cell.textContent;
-
-    if (cellValue === "B") {
-      console.log("Perdu");
-    } else {
-      console.log("Play again");
-    }
-  });
-});
+      click_manager(data);
     } else {
       console.error("Invalid grid data: Unexpected data format.");
     }
@@ -87,7 +73,59 @@ function generate_and_set_table(data) {
   }
   tableHtml += '</table>';
   document.querySelector("#grid").innerHTML = tableHtml;
+};
+
+function checkVictory() {
+  const remainingCells = document.querySelectorAll(".cell:not(.B)");
+  if (remainingCells.length === 0) {
+    gameOver = true;
+    prompt("Gagné");
+  }
 }
+
+function click_manager() {
+  const cellElements = document.querySelectorAll(".cell");
+
+  let gameOver = false;
+
+  cellElements.forEach(cell => {
+    cell.addEventListener("click", () => {
+      if (gameOver) return;
+
+      const cellValue = cell.textContent;
+
+      if (cellValue === "B") {
+        cell.classList.remove("cell");
+        gameOver = true;
+        prompt("Perdu");
+      } else {
+        cell.classList.remove("cell");
+        checkVictory();
+      }
+    });
+
+    cell.addEventListener("contextmenu", event => {
+      event.preventDefault();
+
+      if (cell.classList.contains("cell")) {
+        if (cell.classList.contains("border-danger")) {
+          prompt("Case déjà spotée");
+        } else {
+          cell.classList.add("border", "border-danger", "border-3");
+        }
+      } else {
+        prompt("Case déjà révélée, vous ne pouvez pas la spotter");
+      }
+    });
+  });
+}
+
+
+// Appel initial de la fonction click_manager
+click_manager();
+
+
+
 
 
 // settings_submit.addEventListener("click", (event) => {
