@@ -7,9 +7,8 @@ settings_submit.addEventListener("click", async (event) => {
   const rows = document.querySelector("#rows").value;
   const cols = document.querySelector("#cols").value;
   const mines = document.querySelector("#mines").value;
-  document.querySelector("#home_title").classList.add("d-none");
-  document.querySelector("#setting_form").classList.add("d-none");
-  document.querySelector("#ingame_title").classList.remove("d-none");
+  document.querySelector("#pre_game").classList.add("d-none");
+  document.querySelector("#in_game").classList.remove("d-none");
   
   const apiUrl = `https://minesweeper.js.apprendre-est.fun/generate_grid.php?rows=${rows}&cols=${cols}&mines=${mines}`;
   
@@ -87,11 +86,12 @@ function checkVictory() {
 
   if (allRemainingAreBombs) {
     prompt("Gagné");
-    restart_game(); // Appeler la fonction pour relancer la partie
+    end_game(); // Appeler la fonction pour relancer la partie
   }
 }
-function restart_game() {
-
+function end_game() {
+  document.querySelector("#in_game").classList.add("d-none");
+  document.querySelector("#post_game").classList.remove("d-none");
 }
 
 function click_manager() {
@@ -109,7 +109,7 @@ function click_manager() {
         cell.classList.remove("cell");
         gameOver = true;
         prompt("Perdu");
-        restart_game(); // Appeler la fonction pour relancer la partie
+        end_game(); // Appeler la fonction pour relancer la partie
       } else {
         cell.classList.remove("cell");
         checkVictory();
@@ -132,73 +132,5 @@ function click_manager() {
   });
 }
 
-
-
-// settings_submit.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   const rows = document.querySelector("#rows").value;
-//   const cols = document.querySelector("#cols").value;
-//   const mines = document.querySelector("#mines").value;
-//   document.querySelector("#home_title").classList.add("d-none");
-//   document.querySelector("#setting_form").classList.add("d-none");
-//   document.querySelector("#ingame_title").classList.remove("d-none");
-//   const apiUrl =`https://minesweeper.js.apprendre-est.fun/generate_grid.php?rows=${rows}&cols=${cols}&mines=${mines}`;
-  
-//   fetch(apiUrl)
-//     .then((response) => response.json())
-//     .then((data) => {
-//       if (data && Array.isArray(data)) {
-//         let tableHtml = '<table class="table">';
-//         for (let row = 0; row < data.length; row++) {
-//           tableHtml += '<tr>';
-//           for (let col = 0; col < data[row].length; col++) {
-//             const cellValue = data[row][col];
-//             const cellClass = cellValue === 1 ? 'bg-danger' : 'bg-primary';
-//             const displayValue = cellValue === 1 ? "B" : cellValue;
-//             tableHtml += `<td class="cell ${cellClass}">${displayValue}</td>`;
-//           }
-//         }
-//             tableHtml += '</tr>';
-//         tableHtml += '</table>';
-//         document.querySelector("#grid").innerHTML = tableHtml;
-//             // // Une fois que les cases sont générées, ajoutez les gestionnaires d'événements "click"
-//             // const cells = document.querySelectorAll(".cell");
-//             // cells.forEach((cell) => {
-//             //   cell.addEventListener("click", () => {
-//             //     // Action à effectuer lorsque la cellule est cliquée
-//             //     cell.classList.remove("d-block");
-//             //     cell.classList.add("d-none");
-//             //     // Vous pouvez ajouter ici votre propre logique en fonction de la cellule cliquée
-//             //   });
-//             // });
-//       } else {
-//         console.error("Invalid grid data: Unexpected data format.");
-//       }
-//       console.log (data);
-//     })
-//     .catch((error) => {
-//       console.error("An error occurred:", error);
-//     });
-//       // Ajoutez un gestionnaire d'événements "click" à chaque cellule
-// });
-
-
-
-// // function update_table_html(data) {
-// //   const tableHtml = '<table class="table">';
-// //   for (let row = 0; row < data.length; row++) {
-// //     tableHtml += '<tr>';
-// //     for (let col = 0; col < data[row].length; col++) {
-// //       const cellValue = data[row][col];
-// //       const cellClass = cellValue === "B" ? 'bg-danger' : 'bg-primary';
-// //       const displayValue = cellValue === "B" ? "" : cellValue;
-// //       tableHtml += `<td class="cell ${cellClass}">${displayValue}</td>`;
-// //     }
-// //     tableHtml += '</tr>';
-// //   }
-// //   tableHtml += '</table>';
-// //   document.querySelector("#grid").innerHTML = tableHtml;
-// // }
-  
 
 

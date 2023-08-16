@@ -43,7 +43,7 @@
         </li>
       </ul>
     </div>
-    <section class="container col-8" id="game">
+    <section class="container col-8" id="pre_game">
       <div id="home_title" class="bg-info pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light ">Veuillez configurer la grille de votre démineur!</p>
         </div>
@@ -61,14 +61,22 @@
           <button type="submit" onclick="" id="settings_submit" class="btn fw-semibold text-light btn-info px-5 py-2 rounded">Valider</button>
         </div>
       </form>
-      <div id="ingame_title" class=" d-none bg-success pt-2 mt-2 mb-5 border rounded-4">
+    </section>
+    <section class="container col-8 d-none" id="in_game">
+      <div id="ingame_title" class=" bg-success pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">HAVE FUN !!!</p>
         </div>
-      <div class="container row mt-4 d-flex justify-content-center">
+      <div class="row mt-4 d-flex justify-content-center">
         <div id="grid" class="col-lg-8"></div>
       </div>
-      <div class="container row mt-4 d-flex justify-content-center">
-        <div id="grid2" class="col-lg-8"></div>
+    </section>
+    <section class="container col-8 d-none" id="post_game">
+      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+        <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
+      </div>
+      <div class="d-flex justify-content-evenly">
+        <a href="" class="btn btn-outline-info rounded-2 col-2">OUI</a>
+        <a href="" class="btn btn-outline-danger rounded-2 col-2">NON</a>
       </div>
     </section>
   </body>
