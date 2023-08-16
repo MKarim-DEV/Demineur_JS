@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/script.js" defer></script>
+    <script src="js/restart_game.js" defer></script>
+    <script src="js/new_game.js" defer></script>
+    <script src="js/good_bye.js" defer></script>
     <title>Demineur.com</title>
   </head>
   <body>
@@ -24,7 +27,7 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="#" id="home_btn" class="nav-link active fw-semibold" onclick="" aria-current="page">
+          <a href="#" id="home_btn" class="nav-link active fw-semibold" onclick="new_game()" aria-current="page">
             <img src="upload/icons/new_game.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#home"></use>
            Nouvelle Partie
           </a>
@@ -48,6 +51,9 @@
         <p class="text-center fs-4 fw-bold text-light ">Veuillez configurer la grille de votre démineur!</p>
         </div>
       <form acion="" id="setting_form">
+        <label for="username" class="fs-5 fw-semibold form-label">Votre nom</label>
+        <input type="text" id="username" class="form-control mb-4"
+         name="username" value="">
           <label for="rows" class="fs-5 fw-semibold form-label">Nombre de lignes</label>
           <input type="number" id="rows" class="form-control mb-4"
            name="rows" value="">
@@ -74,10 +80,17 @@
       <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
       </div>
-      <div class="d-flex justify-content-evenly">
-        <a href="" class="btn btn-outline-info rounded-2 col-2">OUI</a>
-        <a href="" class="btn btn-outline-danger rounded-2 col-2">NON</a>
+      <div class="d-flex justify-content-envenly">
+        <button class="btn btn-outline-info rounded-2 col-2 restart" >OUI</button>
+        <button class="btn btn-outline-danger rounded-2 col-2 good_bye">NON</button>
+        </div>
+     </section>
+    <section class="container col-8 d-none" id="good_bye">
+      <div id="good_bye_title" class="bg-warning pt-2 mt-2 mb-5 border rounded-4">
+        <p class="text-center fs-4 fw-bold text-light">Merci d'avoir joué avec Demineur.com</p>
+        <P  class="text-center fs-4 fw-bold text-light"> Voici une petite vidéo pour vous détendre !!!</P> 
       </div>
-    </section>
+      <a href="https://www.youtube.com/embed/NnYjXchDDYQ" target="_blank">Cliquez ici</a>
+      </section>
   </body>
 </html>
