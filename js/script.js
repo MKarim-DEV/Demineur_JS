@@ -76,10 +76,18 @@ function generate_and_set_table(data) {
 };
 
 function checkVictory() {
-  const remainingCells = document.querySelectorAll(".cell:not(.B)");
-  if (remainingCells.length === 0) {
-    gameOver = true;
+  const remainingCells = document.querySelectorAll(".cell");
+  let allRemainingAreBombs = true;
+
+  remainingCells.forEach(remainingCell => {
+    if (remainingCell.textContent !== "B") {
+      allRemainingAreBombs = false;
+    }
+});
+
+  if (allRemainingAreBombs) {
     prompt("Gagné");
+    restart_game(); // Appeler la fonction pour relancer la partie
   }
 }
 
@@ -98,6 +106,7 @@ function click_manager() {
         cell.classList.remove("cell");
         gameOver = true;
         prompt("Perdu");
+        restart_game(); // Appeler la fonction pour relancer la partie
       } else {
         cell.classList.remove("cell");
         checkVictory();
@@ -119,12 +128,6 @@ function click_manager() {
     });
   });
 }
-
-
-// Appel initial de la fonction click_manager
-click_manager();
-
-
 
 
 
