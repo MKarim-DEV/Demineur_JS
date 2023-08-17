@@ -13,13 +13,12 @@
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/script.js" defer></script>
     <script src="js/restart_game.js" defer></script>
-    <script src="js/new_game.js" defer></script>
     <script src="js/good_bye.js" defer></script>
     <title>Demineur.com</title>
   </head>
   <body>
     <div class="row" >
-    <div id="nav" class="d-flex flex-column flex-shrink-0 p-3 bg-light col-4" style="width: 280px;">
+    <div id="nav" class="d-flex flex-column flex-shrink-0 p-3 bg-light col-5" style="width: 280px;">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <span class="fs-4 fw-bolder text-center text-success">Demineur.com</br>Javascript Project</span>
@@ -27,7 +26,7 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="#" id="home_btn" class="nav-link active fw-semibold" onclick="new_game()" aria-current="page">
+          <a href="#" id="home_btn" class="nav-link active fw-semibold" onclick="restart_game()" aria-current="page">
             <img src="upload/icons/new_game.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#home"></use>
            Nouvelle Partie
           </a>
@@ -44,9 +43,19 @@
             Me connecter
           </a>
         </li>
+        <li class="fs-6 text-warning fw-semibold">
+          <p> Règles du Démineur :<br>
+            L'objectif du jeu est de dévoiler toutes les cases vides sans cliquer sur une mine.<br>
+            Le jeu se joue sur une grille composée de cellules carrées. Certaines cellules contiennent des mines, tandis que d'autres sont vides.<br>
+            Si tu cliques sur une case contenant une mine, le jeu est perdu. Toutes les mines sont alors révélées et le jeu est terminé.<br>
+            Tu gagnes lorsque toutes les cases vides sont révélées sans avoir cliqué sur une mine. La grille est nettoyée de toutes les cases<br>
+            Clic Gauche : En cliquant sur une case vide, celle-ci sera révélée et affichera un nombre indiquant le nombre de mines voisines. Si la case est vide et n'a pas de mines adjacentes, toutes les cases vides voisines seront également révélées.<br>
+            Clic Droit : En cliquant avec le bouton droit de la souris sur une case, tu peux marquer une case comme contenant une mine. Cela aide à rappeler où tu soupçonnes qu'il y a des mines.</p>
+           
+        </li>
       </ul>
     </div>
-    <section class="container col-8" id="pre_game">
+    <section class="container col-7" id="pre_game">
       <div id="home_title" class="bg-info pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light ">Veuillez configurer la grille de votre démineur!</p>
         </div>
@@ -68,15 +77,29 @@
         </div>
       </form>
     </section>
-    <section class="container col-8 d-none" id="in_game">
+    <section class="container col-7 d-none" id="in_game">
       <div id="ingame_title" class=" bg-success pt-2 mt-2 mb-5 border rounded-4">
-        <p class="text-center fs-4 fw-bold text-light">HAVE FUN !!!</p>
         </div>
       <div class="row mt-4 d-flex justify-content-center">
-        <div id="grid" class="col-lg-8"></div>
+        <div id="grid" class="col-lg-7"></div>
       </div>
     </section>
-    <section class="container col-8 d-none" id="post_game">
+    <section class="container col-7 d-none" id="you_win">
+      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+        <p class="text-center fs-4 fw-bold text-light">Bravo vous avez gagné!!!</p> 
+      </div>
+      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+        <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
+      </div>
+      <div class="d-flex justify-content-envenly">
+        <button class="btn btn-outline-info rounded-2 col-2 restart" >OUI</button>
+        <button class="btn btn-outline-danger rounded-2 col-2 good_bye">NON</button>
+        </div>
+     </section>
+     <section class="container col-7 d-none" id="you_loose">
+      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+        <p class="text-center fs-4 fw-bold text-light">Dommage, vous y étiez presque!!!</p> 
+      </div>
       <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
       </div>

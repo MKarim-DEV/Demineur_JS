@@ -7,11 +7,13 @@ settings_submit.addEventListener("click", async (event) => {
   const rows = document.querySelector("#rows").value;
   const cols = document.querySelector("#cols").value;
   const mines = document.querySelector("#mines").value;
+  const usernameValue = document.querySelector("#username").value;
+  ingame_title.innerHTML = `<p class="text-center fs-4 fw-bold text-light">BONNE CHANCE ${usernameValue} !!!</p>`;
   document.querySelector("#pre_game").classList.add("d-none");
   document.querySelector("#in_game").classList.remove("d-none");
-  
+
   const apiUrl = `https://minesweeper.js.apprendre-est.fun/generate_grid.php?rows=${rows}&cols=${cols}&mines=${mines}`;
-  
+
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
@@ -33,12 +35,12 @@ function generate_and_set_table(data) {
   const numCols = data[0].length;
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numCols; col++) {
-
       if (data[row][col] === 1) {
         // Transformer les 1 en "B"
-        data[row][col] = "B";}
+        data[row][col] = "B";
       }
     }
+  }
   // Incrémenter les valeurs autour des "B"
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numCols; col++) {
@@ -48,8 +50,10 @@ function generate_and_set_table(data) {
             const newRow = row + rowOffset;
             const newCol = col + colOffset;
             if (
-              newRow >= 0 && newRow < numRows &&
-              newCol >= 0 && newCol < numCols &&
+              newRow >= 0 &&
+              newRow < numRows &&
+              newCol >= 0 &&
+              newCol < numCols &&
               data[newRow][newCol] !== "B"
             ) {
               data[newRow][newCol]++;
@@ -62,36 +66,39 @@ function generate_and_set_table(data) {
 
   let tableHtml = '<table class="table">';
   for (let row = 0; row < numRows; row++) {
-    tableHtml += '<tr>';
+    tableHtml += "<tr>";
     for (let col = 0; col < numCols; col++) {
       let cellValue = data[row][col];
 
       tableHtml += `<td class="cell">${cellValue}</td>`;
     }
-    tableHtml += '</tr>';
+    tableHtml += "</tr>";
   }
-  tableHtml += '</table>';
+  tableHtml += "</table>";
   document.querySelector("#grid").innerHTML = tableHtml;
-};
+}
 
 function checkVictory() {
   const remainingCells = document.querySelectorAll(".cell");
   let allRemainingAreBombs = true;
 
-  remainingCells.forEach(remainingCell => {
+  remainingCells.forEach((remainingCell) => {
     if (remainingCell.textContent !== "B") {
       allRemainingAreBombs = false;
     }
-});
-
+  });
   if (allRemainingAreBombs) {
-    prompt("Gagné");
-    end_game(); // Appeler la fonction pour relancer la partie
+    you_win();
   }
 }
-function end_game() {
+function you_loose() {
   document.querySelector("#in_game").classList.add("d-none");
-  document.querySelector("#post_game").classList.remove("d-none");
+  document.querySelector("#you_loose").classList.remove("d-none");
+}
+
+function you_win() {
+  document.querySelector("#in_game").classList.add("d-none");
+  document.querySelector("#you_win").classList.remove("d-none");
 }
 
 function click_manager() {
@@ -99,7 +106,7 @@ function click_manager() {
 
   let gameOver = false;
 
-  cellElements.forEach(cell => {
+  cellElements.forEach((cell) => {
     cell.addEventListener("click", () => {
       if (gameOver) return;
 
@@ -108,15 +115,14 @@ function click_manager() {
       if (cellValue === "B") {
         cell.classList.remove("cell");
         gameOver = true;
-        prompt("Perdu");
-        end_game(); // Appeler la fonction pour relancer la partie
+        you_loose();
       } else {
         cell.classList.remove("cell");
         checkVictory();
       }
     });
 
-    cell.addEventListener("contextmenu", event => {
+    cell.addEventListener("contextmenu", (event) => {
       event.preventDefault();
 
       if (cell.classList.contains("cell")) {
@@ -131,6 +137,3 @@ function click_manager() {
     });
   });
 }
-
-
-
