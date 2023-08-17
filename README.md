@@ -32,4 +32,4 @@ _faire une fonction qui révélera aussi les cases adjacentes non-bombes, lorsqu
 
 _et enfin faire une fonction pour gérer les fins de partis (victoire/défaite) ainsi que la possibilité de rejouer.
 
-Bilan: malheuresement je n'aurais pas fini à temps, il va me manquer une sécurisation de formulaire qui marche vraiment et la découpe de mes scripts en modules. Tant pis ce sera pour après le rendu, mais dans l'ensemble je pense avoir abordé les principales thématiques.
+Bilan: malheuresement je n'aurais pas fini à temps, il va me manquer une sécurisation de formulaire qui marche vraiment et la découpe de mes scripts en modules (et bien sûr beaucoup de front lol). Tant pis ce sera pour après le rendu, mais dans l'ensemble je pense avoir abordé les principales thématiques.
