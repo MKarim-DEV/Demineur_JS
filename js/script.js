@@ -1,8 +1,8 @@
 "use strict";
 
-const settings_submit = document.querySelector("#settings_submit");
+const SETTINGS_SUBMIT = document.querySelector("#settings_submit");
 
-settings_submit.addEventListener("click", async (event) => {
+SETTINGS_SUBMIT.addEventListener("click", async (event) => {
   event.preventDefault();
   const rows = document.querySelector("#rows").value;
   const cols = document.querySelector("#cols").value;
@@ -12,51 +12,51 @@ settings_submit.addEventListener("click", async (event) => {
   document.querySelector("#pre_game").classList.add("d-none");
   document.querySelector("#in_game").classList.remove("d-none");
 
-  const apiUrl = `https://minesweeper.js.apprendre-est.fun/generate_grid.php?rows=${rows}&cols=${cols}&mines=${mines}`;
+  const API_URL = `https://minesweeper.js.apprendre-est.fun/generate_grid.php?rows=${rows}&cols=${cols}&mines=${mines}`;
 
   try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    console.log(data);
+    const RESPONSE = await fetch(API_URL);
+    const DATA = await RESPONSE.json();
+    console.log(DATA);
 
-    if (data && Array.isArray(data)) {
-      generate_and_set_table(data);
+    if (DATA && Array.isArray(DATA)) {
+      generate_and_set_table(DATA);
       click_manager();
     } else {
-      console.error("Invalid grid data: Unexpected data format.");
+      console.error("Invalid grid DATA: Unexpected DATA format.");
     }
   } catch (error) {
     console.error("An error occurred:", error);
   }
 });
 
-function generate_and_set_table(data) {
-  const numRows = data.length;
-  const numCols = data[0].length;
-  for (let row = 0; row < numRows; row++) {
-    for (let col = 0; col < numCols; col++) {
-      if (data[row][col] === 1) {
+function generate_and_set_table(DATA) {
+  const NUMROWS = DATA.length;
+  const NUMCOLS = DATA[0].length;
+  for (let row = 0; row < NUMROWS; row++) {
+    for (let col = 0; col < NUMCOLS; col++) {
+      if (DATA[row][col] === 1) {
         // Transformer les 1 en "B"
-        data[row][col] = "B";
+        DATA[row][col] = "B";
       }
     }
   }
   // Incrémenter les valeurs autour des "B"
-  for (let row = 0; row < numRows; row++) {
-    for (let col = 0; col < numCols; col++) {
-      if (data[row][col] === "B") {
+  for (let row = 0; row < NUMROWS; row++) {
+    for (let col = 0; col < NUMCOLS; col++) {
+      if (DATA[row][col] === "B") {
         for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
           for (let colOffset = -1; colOffset <= 1; colOffset++) {
-            const newRow = row + rowOffset;
-            const newCol = col + colOffset;
+            const NEWROW = row + rowOffset;
+            const NEWCOL = col + colOffset;
             if (
-              newRow >= 0 &&
-              newRow < numRows &&
-              newCol >= 0 &&
-              newCol < numCols &&
-              data[newRow][newCol] !== "B"
+              NEWROW >= 0 &&
+              NEWROW < NUMROWS &&
+              NEWCOL >= 0 &&
+              NEWCOL < NUMCOLS &&
+              DATA[NEWROW][NEWCOL] !== "B"
             ) {
-              data[newRow][newCol]++;
+              DATA[NEWROW][NEWCOL]++;
             }
           }
         }
@@ -65,10 +65,10 @@ function generate_and_set_table(data) {
   }
 
   let tableHtml = '<table class="table">';
-  for (let row = 0; row < numRows; row++) {
+  for (let row = 0; row < NUMROWS; row++) {
     tableHtml += "<tr>";
-    for (let col = 0; col < numCols; col++) {
-      let cellValue = data[row][col];
+    for (let col = 0; col < NUMCOLS; col++) {
+      let cellValue = DATA[row][col];
 
       tableHtml += `<td class="cell">${cellValue}</td>`;
     }
@@ -78,11 +78,11 @@ function generate_and_set_table(data) {
   document.querySelector("#grid").innerHTML = tableHtml;
 }
 
-function checkVictory() {
-  const remainingCells = document.querySelectorAll(".cell");
+function check_victory() {
+  const REMAININGCELLS = document.querySelectorAll(".cell");
   let allRemainingAreBombs = true;
 
-  remainingCells.forEach((remainingCell) => {
+  REMAININGCELLS.forEach((remainingCell) => {
     if (remainingCell.textContent !== "B") {
       allRemainingAreBombs = false;
     }
@@ -103,7 +103,6 @@ function you_win() {
 
 function click_manager() {
   const cellElements = document.querySelectorAll(".cell");
-
   let gameOver = false;
 
   cellElements.forEach((cell) => {
@@ -118,7 +117,7 @@ function click_manager() {
         you_loose();
       } else {
         cell.classList.remove("cell");
-        checkVictory();
+        check_victory();
       }
     });
 

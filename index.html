@@ -18,63 +18,63 @@
     <title>Demineur.com</title>
   </head>
   <body>
-    <div class="row" >
-    <div id="nav" class="d-flex flex-column flex-shrink-0 p-3 bg-light col-lg-4" style="width: 280px;">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-4 fw-bolder text-center text-success">Demineur.com</br>Javascript Project</span>
-      </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="#" id="home_btn" class="nav-link active fw-semibold" aria-current="page">
-            <img src="upload/icons/new_game.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#home"></use>
-           Nouvelle Partie
-          </a>
-        </li>
-        <li>
-          <a href="#" id="crypto_btn" class="nav-link fw-semibold" onclick="">
-            <img src="upload/icons/resume_game.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#speedometer2"></use>
-            Reprendre ma partie
-          </a>
-        </li>
-        <li>
-          <a href="#" id="currency_btn" class="nav-link fw-semibold" onclick="">
-            <img src="upload/icons/connect.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#table"></use>
-            Me connecter
-          </a>
-        </li>
-        <li class="fs-6 text-warning fw-semibold">
-          <p> Règles du Démineur :<br>
-            L'objectif du jeu est de dévoiler toutes les cases vides sans cliquer sur une mine.<br>
-            Le jeu se joue sur une grille composée de cellules carrées. Certaines cellules contiennent des mines, tandis que d'autres sont vides.<br>
-            Si tu cliques sur une case contenant une mine, le jeu est perdu. Toutes les mines sont alors révélées et le jeu est terminé.<br>
-            Tu gagnes lorsque toutes les cases vides sont révélées sans avoir cliqué sur une mine. La grille est nettoyée de toutes les cases<br>
-            Clic Gauche : En cliquant sur une case vide, celle-ci sera révélée et affichera un nombre indiquant le nombre de mines voisines. Si la case est vide et n'a pas de mines adjacentes, toutes les cases vides voisines seront également révélées.<br>
-            Clic Droit : En cliquant avec le bouton droit de la souris sur une case, tu peux marquer une case comme contenant une mine. Cela aide à rappeler où tu soupçonnes qu'il y a des mines.</p>
-           
-        </li>
-      </ul>
-    </div>
+    <section id="navbar" class="row" >
+      <div id="nav" class="d-flex flex-column flex-shrink-0 p-3 bg-light col-lg-4" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4 fw-bolder text-center text-success">Demineur.com</br>Javascript Project</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" id="home_btn" class="nav-link active fw-semibold" aria-current="page">
+              <img src="upload/icons/new_game.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#home"></use>
+            Nouvelle Partie
+            </a>
+          </li>
+          <li>
+            <a href="#" id="crypto_btn" class="nav-link fw-semibold" onclick="">
+              <img src="upload/icons/resume_game.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#speedometer2"></use>
+              Reprendre ma partie
+            </a>
+          </li>
+          <li>
+            <a href="#" id="currency_btn" class="nav-link fw-semibold" onclick="">
+              <img src="upload/icons/connect.svg" class="me-2 pb-1" width="26" height="26"><use xlink:href="#table"></use>
+              Me connecter
+            </a>
+          </li>
+          <li class="fs-6 text-warning fw-semibold">
+            <p> Règles du Démineur :<br>
+              L'objectif du jeu est de dévoiler toutes les cases vides sans cliquer sur une mine.<br>
+              Le jeu se joue sur une grille composée de cellules carrées. Certaines cellules contiennent des mines, tandis que d'autres sont vides.<br>
+              Si tu cliques sur une case contenant une mine, le jeu est perdu. Toutes les mines sont alors révélées et le jeu est terminé.<br>
+              Tu gagnes lorsque toutes les cases vides sont révélées sans avoir cliqué sur une mine. La grille est nettoyée de toutes les cases<br>
+              Clic Gauche : En cliquant sur une case vide, celle-ci sera révélée et affichera un nombre indiquant le nombre de mines voisines. Si la case est vide et n'a pas de mines adjacentes, toutes les cases vides voisines seront également révélées.<br>
+              Clic Droit : En cliquant avec le bouton droit de la souris sur une case, tu peux marquer une case comme contenant une mine. Cela aide à rappeler où tu soupçonnes qu'il y a des mines.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
     <section class="container col-lg-8" id="pre_game">
       <div id="home_title" class="bg-info pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light ">Veuillez configurer la grille de votre démineur!</p>
-        </div>
-      <form acion="" id="setting_form">
+      </div>
+      <form action="" id="setting_form">
         <label for="username" class="fs-5 fw-semibold form-label">Votre nom</label>
         <input type="text" id="username" class="form-control mb-4" maxlength="50" required
-         name="username" value="">
-          <label for="rows" class="fs-5 fw-semibold form-label">Nombre de lignes</label>
-          <input type="number" id="rows" class="form-control mb-4"  min="2" max="50" required
-           name="rows" value="">
-          <label for="cols" class="fs-5 fw-semibold form-label">Nombre de colonnes</label>
-          <input type="number" id="cols" class="form-control mb-4"  min="2" max="50" required
-           name="cols" value="">
-           <label for="mines" class="fs-5 fw-semibold form-label">Nombre de mines</label>
-           <input type="number" id="mines" class="form-control mb-5"
+            name="username" value="">
+        <label for="rows" class="fs-5 fw-semibold form-label">Nombre de lignes</label>
+        <input type="number" id="rows" class="form-control mb-4"  min="2" max="50" required
+            name="rows" value="">
+        <label for="cols" class="fs-5 fw-semibold form-label">Nombre de colonnes</label>
+        <input type="number" id="cols" class="form-control mb-4"  min="2" max="50" required
+            name="cols" value="">
+        <label for="mines" class="fs-5 fw-semibold form-label">Nombre de mines</label>
+        <input type="number" id="mines" class="form-control mb-5"
             name="mines" value="" required>
         <div class="d-flex justify-content-center">
-          <button type="submit" onclick="" id="settings_submit" class="btn fw-semibold text-light btn-info px-5 py-2 rounded">Valider</button>
+          <button type="submit" id="settings_submit" class="btn fw-semibold text-light btn-info px-5 py-2 rounded">Valider</button>
         </div>
       </form>
     </section>
@@ -96,8 +96,8 @@
         <button class="btn btn-outline-info rounded-2 col-2" id="replay_1" >OUI</button>
         <button class="btn btn-outline-danger rounded-2 col-2" id="good_bye_1">NON</button>
         </div>
-     </section>
-     <section class="container col-lg-8 d-none" id="you_loose">
+    </section>
+    <section class="container col-lg-8 d-none" id="you_loose">
       <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Dommage, vous y étiez presque!!!</p> 
       </div>
@@ -108,13 +108,13 @@
         <button class="btn btn-outline-info rounded-2 col-2" id="replay_2" >OUI</button>
         <button class="btn btn-outline-danger rounded-2 col-2" id="good_bye_2">NON</button>
         </div>
-     </section>
+    </section>
     <section class="container col-lg-8 d-none" id="good_bye">
       <div id="good_bye_title" class="bg-warning pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Merci d'avoir joué avec Demineur.com</p>
         <P  class="text-center fs-4 fw-bold text-light"> Voici une petite vidéo pour vous détendre !!!</P> 
       </div>
       <a href="https://www.youtube.com/embed/NnYjXchDDYQ" target="_blank">Cliquez ici</a>
-      </section>
+    </section>
   </body>
 </html>
