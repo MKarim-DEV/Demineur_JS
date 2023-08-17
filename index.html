@@ -18,7 +18,7 @@
     <title>Demineur.com</title>
   </head>
   <body>
-    <section id="navbar" class="row" >
+    <div class="row">
       <div id="nav" class="d-flex flex-column flex-shrink-0 p-3 bg-light col-lg-4" style="width: 280px;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
@@ -55,7 +55,6 @@
           </li>
         </ul>
       </div>
-    </section>
     <section class="container col-lg-8" id="pre_game">
       <div id="home_title" class="bg-info pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light ">Veuillez configurer la grille de votre démineur!</p>
@@ -92,29 +91,32 @@
       <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
       </div>
-      <div class="d-flex justify-content-envenly">
-        <button class="btn btn-outline-info rounded-2 col-2" id="replay_1" >OUI</button>
-        <button class="btn btn-outline-danger rounded-2 col-2" id="good_bye_1">NON</button>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-sucess rounded-2 col-2 mx-4 fs-3 fw-semibold" id="replay_1" >OUI</button>
+        <button class="btn btn-warning rounded-2 col-2 fs-3 fw-semibold" id="good_bye_1">NON</button>
         </div>
     </section>
     <section class="container col-lg-8 d-none" id="you_loose">
-      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+      <div id="endgame_title" class="bg-primary pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Dommage, vous y étiez presque!!!</p> 
       </div>
-      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+      <div id="endgame_title" class="bg-primary pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
       </div>
-      <div class="d-flex justify-content-envenly">
-        <button class="btn btn-outline-info rounded-2 col-2" id="replay_2" >OUI</button>
-        <button class="btn btn-outline-danger rounded-2 col-2" id="good_bye_2">NON</button>
-        </div>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-success rounded-2 col-2 mx-4 fs-3 fw-semibold" id="replay_2" >OUI</button>
+        <button class="btn btn-warning rounded-2 col-2 fs-3 fw-semibold" id="good_bye_2">NON</button>
+      </div>
     </section>
     <section class="container col-lg-8 d-none" id="good_bye">
-      <div id="good_bye_title" class="bg-warning pt-2 mt-2 mb-5 border rounded-4">
+      <div id="good_bye_title" class="bg-info pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Merci d'avoir joué avec Demineur.com</p>
         <P  class="text-center fs-4 fw-bold text-light"> Voici une petite vidéo pour vous détendre !!!</P> 
       </div>
-      <a href="https://www.youtube.com/embed/NnYjXchDDYQ" target="_blank">Cliquez ici</a>
+      <div class="d-flex justify-content-center">
+        <a href="https://www.youtube.com/embed/NnYjXchDDYQ" target="_blank" class="bg-danger px-5 mt-2 mb-5 border rounded-4 text-light fs-2 text-decoration-none">CLIQUEZ ICI</a>
+      </div>
     </section>
+    </div>
   </body>
 </html>
