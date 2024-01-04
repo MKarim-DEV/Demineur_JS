@@ -44,14 +44,41 @@
               Me connecter
             </a>
           </li>
-          <li class="fs-6 text-warning fw-semibold">
-            <p> Règles du Démineur :<br>
+          <li class="fs-6 text-warning fw-semibold" id="rules">
+            <div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="rulesModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="rulesModalLabel">Règles du Démineur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Contenu des règles ici -->
+                    <p>
+                      L'objectif du jeu est de dévoiler toutes les cases vides sans cliquer sur une mine.
+                      Le jeu se joue sur une grille composée de cellules carrées. Certaines cellules contiennent des
+                      mines, tandis que d'autres sont vides.
+                      Si tu cliques sur une case contenant une mine, le jeu est perdu. Toutes les mines sont alors
+                      révélées et le jeu est terminé.
+                      Tu gagnes lorsque toutes les cases vides sont révélées sans avoir cliqué sur une mine. La grille
+                      est nettoyée de toutes les cases.
+                      Clic Gauche : En cliquant sur une case vide, celle-ci sera révélée et affichera un nombre
+                      indiquant le nombre de mines voisines. Si la case est vide et n'a pas de mines adjacentes, toutes
+                      les cases vides voisines seront également révélées.
+                      Clic Droit : En cliquant avec le bouton droit de la souris sur une case, tu peux marquer une case
+                      comme contenant une mine. Cela aide à rappeler où tu soupçonnes qu'il y a des mines.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <p> Règles du Démineur :<br>
               L'objectif du jeu est de dévoiler toutes les cases vides sans cliquer sur une mine.<br>
               Le jeu se joue sur une grille composée de cellules carrées. Certaines cellules contiennent des mines, tandis que d'autres sont vides.<br>
               Si tu cliques sur une case contenant une mine, le jeu est perdu. Toutes les mines sont alors révélées et le jeu est terminé.<br>
               Tu gagnes lorsque toutes les cases vides sont révélées sans avoir cliqué sur une mine. La grille est nettoyée de toutes les cases<br>
               Clic Gauche : En cliquant sur une case vide, celle-ci sera révélée et affichera un nombre indiquant le nombre de mines voisines. Si la case est vide et n'a pas de mines adjacentes, toutes les cases vides voisines seront également révélées.<br>
-              Clic Droit : En cliquant avec le bouton droit de la souris sur une case, tu peux marquer une case comme contenant une mine. Cela aide à rappeler où tu soupçonnes qu'il y a des mines.</p>
+              Clic Droit : En cliquant avec le bouton droit de la souris sur une case, tu peux marquer une case comme contenant une mine. Cela aide à rappeler où tu soupçonnes qu'il y a des mines.</p>-->
           </li>
         </ul>
       </div>
@@ -85,10 +112,10 @@
       </div>
     </section>
     <section class="container col-lg-8 d-none" id="you_win">
-      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+      <div id="endgame_title_win" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Bravo vous avez gagné!!!</p> 
       </div>
-      <div id="endgame_title" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
+      <div id="endgame_title_win_replay" class="bg-success pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
       </div>
       <div class="d-flex justify-content-center">
@@ -97,10 +124,10 @@
         </div>
     </section>
     <section class="container col-lg-8 d-none" id="you_loose">
-      <div id="endgame_title" class="bg-primary pt-2 mt-2 mb-5 border rounded-4">
+      <div id="endgame_title_loose" class="bg-primary pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Dommage, vous y étiez presque!!!</p> 
       </div>
-      <div id="endgame_title" class="bg-primary pt-2 mt-2 mb-5 border rounded-4">
+      <div id="endgame_title_loose_replay" class="bg-primary pt-2 mt-2 mb-5 border rounded-4">
         <p class="text-center fs-4 fw-bold text-light">Voulez-vous rejouer?</p> 
       </div>
       <div class="d-flex justify-content-center">
