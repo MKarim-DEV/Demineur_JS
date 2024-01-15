@@ -1,8 +1,8 @@
-.cell{
+.cell {
     background-color: rgb(142, 140, 140)!important;
-    color:transparent;
+    color:transparent!important;
 }
-/* Style de base pour les cellules */
+
 td {
     width: 40px;
     height: 40px;
@@ -14,7 +14,6 @@ td {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     user-select: none;
 }
-
 
 td:hover {
     background-color: #d0d0d0;

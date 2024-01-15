@@ -47,7 +47,6 @@ function placeMines(rows, cols, mines) {
     }
   }
 }
-
 SETTINGS_SUBMIT.addEventListener("click", async (event) => {
   event.preventDefault();
   const rows = parseInt(document.querySelector("#rows").value);
@@ -139,9 +138,34 @@ function click_manager() {
     });
   });
 }
+const rulesElement = document.querySelector("#rules");
+const rulesButton = document.querySelector("#rulesButton");
 
-/*
+// Récupère la modal des règles
+const rulesModal = new bootstrap.Modal(document.getElementById("rulesModal"));
 
+// Écoute l'événement du survol de l'élément contenant les règles
+rulesElement.addEventListener("click", () => {
+  rulesModal.show(); // Affiche la modal au survol de l'élément
+});
+
+// Écoute l'événement de la fermeture de la modal
+rulesModal._element.addEventListener('hidden.bs.modal', function () {
+  // Réinitialise l'état de la modal après la fermeture
+  rulesModal._element.style.display = '';
+  rulesModal._element.classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
+  rulesModal._element.removeAttribute('aria-modal');
+  rulesModal._element.removeAttribute('role');
+});
+
+// Écoute l'événement du clic pour fermer la modal (sur l'élément ou le bouton de fermeture)
+rulesElement.addEventListener("click", () => {
+  rulesModal.hide(); // Cache la modal au clic sur l'élément
+});
+
+
+/**
 "use strict";
 const GAME_GRID = [];
 
@@ -340,4 +364,4 @@ function click_manager() {
     });
   });
 }
-*/
+*!/*/
