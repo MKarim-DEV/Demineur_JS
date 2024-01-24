@@ -1,5 +1,4 @@
 "use strict";
-
 const SETTINGS_SUBMIT = document.querySelector("#settings_submit");
 const ingame_title = document.querySelector("#ingame_title");
 
@@ -49,18 +48,20 @@ function placeMines(rows, cols, mines) {
 }
 SETTINGS_SUBMIT.addEventListener("click", async (event) => {
   event.preventDefault();
-  const rows = parseInt(document.querySelector("#rows").value);
-  const cols = parseInt(document.querySelector("#cols").value);
-  const mines = parseInt(document.querySelector("#mines").value);
-  const usernameValue = document.querySelector("#username").value;
+  if(validateForm()) {
+    const rows = parseInt(document.querySelector("#rows").value);
+    const cols = parseInt(document.querySelector("#cols").value);
+    const mines = parseInt(document.querySelector("#mines").value);
+    const usernameValue = document.querySelector("#username").value;
 
-  placeMines(rows, cols, mines);
-  ingame_title.innerHTML = `<p class="text-center fs-4 fw-bold text-light">BONNE CHANCE ${usernameValue} !!!</p>`;
-  document.querySelector("#pre_game").classList.add("d-none");
-  document.querySelector("#in_game").classList.remove("d-none");
+    placeMines(rows, cols, mines);
+    ingame_title.innerHTML = `<p class="text-center fs-4 fw-bold text-light">BONNE CHANCE ${usernameValue} !!!</p>`;
+    document.querySelector("#pre_game").classList.add("d-none");
+    document.querySelector("#in_game").classList.remove("d-none");
 
-  generate_and_set_table(GAME_GRID);
-  click_manager();
+    generate_and_set_table(GAME_GRID);
+    click_manager();
+  }
 });
 
 function generate_and_set_table(DATA) {
